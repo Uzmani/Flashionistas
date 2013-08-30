@@ -19,22 +19,31 @@ end
 #select a deck
 #assign deck and user to new game instance
 post '/deck/:deck_id' do
-  #params[:deck_id]
+  #game = Game.create(user_id: sessions[:user_id], deck_id: params[:deck_id])
+  game = Game.first
+  game.card_shuffle
+  @card = game.available_cards.pop
+  redirect '/success' if @cards.empty?
   erb :card
 end
 
 #begin game
 #show FIRST/NEXT card of deck
 get '/game/:deck_id/:card_id' do
-  
+  game = Game.first
+  game.card_shuffle
+  @card = game.available_cards.pop
+  erb :card
 end
+
 
 #check guess
 #route answer if right/wrong
 post '/game/:deck_id/:card_id' do
   #params[:answer]
+  @card = Card.find(params[:card_id])
 
-  if #right answer
+  if params[:card_value] == @card.answer
     if #last card
         #game finished
         erb :summary #success page
