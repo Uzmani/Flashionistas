@@ -4,11 +4,7 @@ get '/' do
   erb :signin
 end
 
-#login, authenticate user, assign user_id to session
-post '/user' do
-  #
-  redirect '/decks'
-end
+
 
 #go to decks
 get '/decks' do
