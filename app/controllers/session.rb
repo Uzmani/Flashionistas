@@ -1,10 +1,12 @@
 #login, authenticate user, assign user_id to session
 post '/login' do
+  puts '*'*100
+  p params
 
   @user = User.authenticate(params[:login][:username], params[:login][:password])
 
   if @user
-    session[user_id] = @user.id
+    session[:user_id] = @user.id
     redirect '/decks'
   else
     # flash message invalid login
