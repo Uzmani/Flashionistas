@@ -7,15 +7,14 @@
 
   <div class='cardshow'>
     <div class='title'>
-      <p>Is <strong>Henry Cavil</strong> hot or not?</p>
+      <p>Is <strong><%= @card.definition %></strong> hot or not?</p>
     </div>
-
     <div class='card_options'>
-      <form id='card_possibilities' action='/game/:deck_id/:card_id' method='post'>
-        <input type='radio' name='Hot' value='HOT'>Hot?<br>
-        <input type='radio' name='Not' value='NOT'>Not?</br>
-        <input type='submit' value='Are you sure???'>
-      </form>
+        <form name='card_value' 
+        action='/game/<%= @card.deck_id %>/<%= @card.id %>' method='post'>
+          <input type='text' name='answer' placeholder='HOT or NOT?'><br>
+          <input type='submit' value='Are you sure???'>
+        </form>
     </div>
   </div>
 
