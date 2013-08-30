@@ -12,7 +12,7 @@ end
 
 #go to decks
 get '/decks' do
-  #
+  @decks = Deck.all
   erb :flashboard
 end
 

@@ -1,5 +1,5 @@
 <ul>
-  <li><a href= "/decks/:deck_id"> Deck 1 </a></li>
-  <li><a href= "/decks/:deck_id"> Deck 2 </a></li>
-  <li><a href= "/decks/:deck_id"> Deck 3 </a></li>
+  <% @decks.each do |deck| %>
+  <li><a href= "/decks/<%=deck.id%>"><%= deck.name %></a></li>
+  <% end %>
 </ul>
