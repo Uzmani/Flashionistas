@@ -1,3 +1,6 @@
+include BCrypt
+User.create(user_name: "Nathan", password_hash: Password.create("123"))
+
 deck1 = Deck.create(name: "Celebs")
 deck2 = Deck.create(name: "Cuisine")
 

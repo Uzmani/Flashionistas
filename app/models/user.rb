@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :games
 
   def self.authenticate(username, password)
+    puts username
+    puts password
     user = self.find_by_user_name(username)
     return nil if user.nil?
     user.password == password ? user : nil
@@ -17,5 +19,4 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
-
 end
