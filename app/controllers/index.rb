@@ -1,6 +1,8 @@
 #home page, shows login
 get '/' do
-  # Look in app/views/index.erb
+  if current_user
+    redirect '/decks'
+  end
   erb :signin
 end
 
