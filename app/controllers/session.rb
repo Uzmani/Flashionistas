@@ -16,7 +16,7 @@ post '/login' do
 end
 
 post '/signup' do
-  
+  #add new user logic
 end
 
 post '/logout' do 
