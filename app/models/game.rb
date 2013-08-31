@@ -9,4 +9,8 @@ class Game < ActiveRecord::Base
   def available_cards
     @available_cards
   end
+
+  def get_card
+    @available_cards.pop
+  end
 end
