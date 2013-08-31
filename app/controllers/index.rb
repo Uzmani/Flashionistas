@@ -17,19 +17,21 @@ end
 #select a deck
 #assign deck and user to new game instance
 get '/deck/:deck_id' do
-  game = Game.create(user_id: sessions[:user_id], deck_id: params[:deck_id])
-  game.card_shuffle
-  redirect '/game/#{game.id}/'
+  game = Game.create(user_id: session[:user_id], deck_id: params[:deck_id])
+  @cards = game.card_shuffle
+
+  redirect "/game/#{game.id}"
 end
+
 
 #begin game
 #show FIRST/NEXT card of deck
 get '/game/:game_id' do
+  @card = game.get_card
+
 
   game = Game.find(params[:game_id])
-
   redirect '/success' if game.available_cards.empty?
-  @card = game.get_card
   
   erb :card
 end
