@@ -15,6 +15,10 @@ post '/login' do
 
 end
 
+post '/signup' do
+  
+end
+
 post '/logout' do 
   session.clear
 end
