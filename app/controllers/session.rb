@@ -12,6 +12,7 @@ post '/login' do
     # flash message invalid login
     redirect '/'
   end
+
 end
 
 post '/logout' do 
