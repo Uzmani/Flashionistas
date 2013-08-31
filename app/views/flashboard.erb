@@ -1,5 +1,5 @@
-<div class='flashboard'>
-  <ul class='alldecks'>
-    <li></li>
-  </ul>
-</div>
+<ul>
+  <% @decks.each do |deck| %>
+  <li><a href= "/decks/<%=deck.id%>"><%= deck.name %></a></li>
+  <% end %>
+</ul>
