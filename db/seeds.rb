@@ -13,8 +13,12 @@ deck1 << Card.create(definition: "Barack Obama", answer: "HOT")
 deck1 << Card.create(definition: "Leaving your dishes in the sink at DBC", answer: "NOT")
 
 
+<<<<<<< HEAD
 
 
+=======
+User.create(user_name: "Nathan", password: "123")
+>>>>>>> master
 
 
 
