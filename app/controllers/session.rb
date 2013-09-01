@@ -2,21 +2,19 @@
 post '/login' do
   @user = User.authenticate(params[:username], params[:password])
 
-  if @user
+  if @user # won't trigger if user=nil
     session[:user_id] = @user.id
     redirect '/decks'
-  else
-    # flash message invalid login
-    redirect '/'
+  elsif
+    @user = User.new
+    @user.login_error# flash message invalid login
+    erb :signup
   end
-
 end
 
 post '/signup' do
-  #add new user logic
-  @new_user = User.create(params)
-  @error_messages = @new_user.errors.full_messages
-
+  @user = User.new(params)
+  redirect '/decks' if @user.save
   erb :signup
 end
 

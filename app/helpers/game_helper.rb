@@ -19,14 +19,17 @@ helpers do
   end
 
   def next_card
-    #last_card
     session[:card_index] += 1
   end
 
   def wrong_answer
     session[:wrong_answers] << session[:card_index]
+<<<<<<< HEAD
     #session[:wrong_answers].uniq #useful if we loop
     session[:wrong_answers]
+=======
+    #session[:wrong_answers].uniq #only useful if user must answer correctly to move forward in game
+>>>>>>> master
   end
 
   def score

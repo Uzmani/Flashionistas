@@ -1,5 +1,6 @@
 #home page, shows login
 get '/' do
+  @user = User.new
   if current_user
     redirect '/decks'
   end
@@ -25,6 +26,7 @@ end
 #begin game
 #show FIRST/NEXT card of deck
 get '/game' do
+
   puts '8'*100
   puts "wrong answer array"
   p wrong_answer
@@ -34,6 +36,7 @@ get '/game' do
   p total_cards
   puts "percentage"
   p percentage_complete
+
   current_card
   redirect '/success' unless @card # double redirect logic is odd
   erb :card

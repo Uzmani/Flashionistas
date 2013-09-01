@@ -1,6 +1,7 @@
-<div class="container">
-  <ul><% @error_messages.each do |error| %>
-    <li><%= error %></li>
-  </ul>
+<div class="alert alert-danger">
+  <% @user.errors.full_messages.each do |error| %>
+    <div>
+      <%= error %>
+    </div>
   <% end %>
 </div>
