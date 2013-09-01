@@ -1,5 +1,6 @@
 #home page, shows login
 get '/' do
+  @user = User.new
   if current_user
     redirect '/decks'
   end

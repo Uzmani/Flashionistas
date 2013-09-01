@@ -1,3 +1,7 @@
+<% unless @user.errors.empty? %>
+  <%= erb :errors %>
+<% end %>
+
 <div class='form_login'>
   <form action="/signup" method="post">
     <label>Create a new Account</label><br>
@@ -6,9 +10,4 @@
     <input type="submit" value="Create Account">
   </form>
 </div>
-
-
-<% if @new_user.id.nil? || current_user.nil? %>
-  <%= erb :errors %>
-<%end%> 
 
