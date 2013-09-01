@@ -25,10 +25,6 @@ end
 #begin game
 #show FIRST/NEXT card of deck
 get '/game' do
-  puts '8'*100
-  p session[:game_cards]
-  p session[:card_index]
-  p session[:wrong_answers]
   current_card
   redirect '/success' unless @card # double redirect logic is odd
   erb :card
