@@ -42,7 +42,15 @@ end
 
 #game is finished
 get '/success' do
-
+  puts "wrong answer array"
+  p wrong_answer
+  puts "score"
+  p score
+  puts "total cards"
+  p total_cards
+  p percentage_complete
+  @percentage = percentage_complete
+  erb :summary
 end
 
 

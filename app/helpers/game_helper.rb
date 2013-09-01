@@ -6,6 +6,10 @@ helpers do
     session[:wrong_answers] = []
   end
 
+  def total_cards
+    session[:game_cards].length
+  end
+
   def current_card
     @card = Card.find_by_id(session[:game_cards][session[:card_index]])
   end
@@ -20,9 +24,15 @@ helpers do
 
   def wrong_answer
     session[:wrong_answers] << session[:card_index]
-    #session[:wrong_answers].uniq #only useful if user must answer correctly to move forward in game
   end
 
+  def score
+    total_cards - wrong_answer.length
+  end
+  
+  def percentage_complete
+    ((score.to_f / total_cards) * 100).round(1)
+  end
   # def last_card?
   #   session[:game_cards].count == session[:card_index]
   # end  
