@@ -19,3 +19,14 @@ th {
   padding-left: 10px;
 }
 
+.cardimage {
+  border: 1px solid red;
+  width: auto;
+}
+
+img {
+  border: 1px solid gray;
+  width: 400px;
+  height: auto;
+}
+
