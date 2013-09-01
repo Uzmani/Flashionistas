@@ -8,6 +8,10 @@ helpers do
     session[:game_cards].length
   end
 
+  def total_cards
+    session[:game_cards].length
+  end
+
   def current_card
     @card = Card.find_by_id(session[:game_cards][session[:card_index]])
   end
@@ -24,12 +28,14 @@ helpers do
     session[:wrong_answers] << session[:card_index]
   end
 
+
   def wrong_answers
     session[:wrong_answers]
   end
 
+  
   def score
-    total_cards - wrong_answers.length
+    total_cards - wrong_answer.length
   end
   
   def percentage_complete
