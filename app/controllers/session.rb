@@ -1,9 +1,6 @@
 #login, authenticate user, assign user_id to session
 post '/login' do
-  puts '*'*100
-  p params
-
-  p @user = User.authenticate(params[:username], params[:password])
+  @user = User.authenticate(params[:username], params[:password])
 
   if @user
     session[:user_id] = @user.id
