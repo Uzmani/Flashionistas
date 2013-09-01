@@ -1,16 +1,14 @@
 class Game < ActiveRecord::Base
   belongs_to :user
   belongs_to :deck
+  before_save :create_shuffled_deck
 
-  def card_shuffle
-    @available_cards = deck.cards.shuffle
+  def get_cards
+    self.shuffle_deck.split(', ').map {|id| Card.find(id.to_i) }
   end
 
-  def available_cards
-    @available_cards
+  def create_shuffled_deck
+    self.shuffle_deck = deck.cards.shuffle.map {|card| card.id}.join(', ')
   end
 
-  def get_card
-    @available_cards.pop
-  end
 end
