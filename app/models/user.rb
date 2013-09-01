@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   include BCrypt
-  validates :user_name, presence: true
+  validates :user_name, presence: true, uniqueness: true
   has_many :games
 
   def self.authenticate(username, password)
@@ -19,4 +19,5 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
+
 end
