@@ -9,8 +9,7 @@ end
 
 #go to decks
 get '/decks' do
-  # puts '*' *100
-  # p current_user
+  reset_game
   @decks = Deck.all
   erb :flashboard
 end
@@ -26,22 +25,10 @@ end
 #begin game
 #show FIRST/NEXT card of deck
 get '/game' do
-
-  puts '8'*100
-  puts "wrong answer array"
-  p wrong_answer
-  puts "score"
-  p score
-  puts "total cards"
-  p total_cards
-  puts "percentage"
-  p percentage_complete
-
   current_card
   redirect '/success' unless @card # double redirect logic is odd
   erb :card
 end
-
 
 #check guess
 #route answer if right/wrong
@@ -53,13 +40,6 @@ end
 
 #game is finished
 get '/success' do
-  puts "wrong answer array"
-  p wrong_answer
-  puts "score"
-  p score
-  puts "total cards"
-  p total_cards
-  p percentage_complete
   @percentage = percentage_complete
   erb :summary
 end

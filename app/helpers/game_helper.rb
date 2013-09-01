@@ -2,8 +2,6 @@ helpers do
   def new_game
     game = Game.create(user_id: session[:user_id], deck_id: params[:deck_id])
     session[:game_cards] = game.get_shuffled_deck
-    session[:card_index] = 0
-    session[:wrong_answers] = []
   end
 
   def total_cards
@@ -24,16 +22,14 @@ helpers do
 
   def wrong_answer
     session[:wrong_answers] << session[:card_index]
-<<<<<<< HEAD
-    #session[:wrong_answers].uniq #useful if we loop
+  end
+
+  def wrong_answers
     session[:wrong_answers]
-=======
-    #session[:wrong_answers].uniq #only useful if user must answer correctly to move forward in game
->>>>>>> master
   end
 
   def score
-    total_cards - wrong_answer.length
+    total_cards - wrong_answers.length
   end
   
   def percentage_complete
