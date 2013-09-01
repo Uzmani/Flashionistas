@@ -17,6 +17,10 @@ end
 
 post '/signup' do
   #add new user logic
+  @new_user = User.create(params)
+  @error_messages = @new_user.errors.full_messages
+
+  erb :signup
 end
 
 get '/logout' do 
