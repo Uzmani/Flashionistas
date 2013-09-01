@@ -34,12 +34,8 @@ end
 #check guess
 #route answer if right/wrong
 post '/game' do  
-  if check_guess
-    next_card
-  else
-    wrong_answer
-    next_card
-  end
+  check_guess
+  next_card unless last_card?
   redirect '/game'    
 end
 
