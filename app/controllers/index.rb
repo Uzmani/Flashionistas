@@ -26,9 +26,14 @@ end
 #show FIRST/NEXT card of deck
 get '/game' do
   puts '8'*100
-  p session[:game_cards]
-  p session[:card_index]
-  p session[:wrong_answers]
+  puts "wrong answer array"
+  p wrong_answer
+  puts "score"
+  p score
+  puts "total cards"
+  p total_cards
+  puts "percentage"
+  p percentage_complete
   current_card
   redirect '/success' unless @card # double redirect logic is odd
   erb :card
@@ -45,7 +50,15 @@ end
 
 #game is finished
 get '/success' do
-
+  puts "wrong answer array"
+  p wrong_answer
+  puts "score"
+  p score
+  puts "total cards"
+  p total_cards
+  p percentage_complete
+  @percentage = percentage_complete
+  erb :summary
 end
 
 
