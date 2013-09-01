@@ -38,7 +38,6 @@ get '/game' do
   @card = session[:game_cards].last
   redirect '/success' if session[:game_cards].empty?
   
-
   erb :card
 end
 
