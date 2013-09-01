@@ -3,7 +3,7 @@ post '/login' do
   puts '*'*100
   p params
 
-  @user = User.authenticate(params[:username], params[:password])
+  p @user = User.authenticate(params[:username], params[:password])
 
   if @user
     session[:user_id] = @user.id
@@ -19,8 +19,9 @@ post '/signup' do
   #add new user logic
 end
 
-post '/logout' do 
+get '/logout' do 
   session.clear
+  redirect '/'
 end
 
 

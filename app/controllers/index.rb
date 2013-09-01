@@ -3,13 +3,15 @@ get '/' do
   if current_user
     redirect '/decks'
   end
-  erb :signin
+  erb :signup
 end
 
 
 
 #go to decks
 get '/decks' do
+  puts '*' *100
+  p current_user
   @decks = Deck.all
   erb :flashboard
 end
@@ -27,10 +29,9 @@ end
 get '/game/:game_id' do
 
   game = Game.find(params[:game_id])
-
+  
   redirect '/success' if game.available_cards.empty?
   @card = game.get_card
-  
   erb :card
 end
 
