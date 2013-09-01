@@ -20,7 +20,7 @@ class Game < ActiveRecord::Base
   end
 
   def percentage_complete
-    ((cards_guessed_correct.to_f) / cards_count) * 100).round(1)
+    ((cards_guessed_correct.to_f / cards_count) * 100).round(1)
   end
 
 end

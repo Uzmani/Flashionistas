@@ -11,15 +11,20 @@ helpers do
   end
 
   def check_guess
-    params[:answer] == current_card.answer
+    wrong_answer unless params[:answer] == current_card.answer
   end
 
   def next_card
+    #last_card
     session[:card_index] += 1
   end
 
   def wrong_answer
     session[:wrong_answers] << session[current_card]
-    session[:wrong_answers].uniq
+    #session[:wrong_answers].uniq #useful if we loop
   end
+
+  def last_card?
+    session[:game_cards].length == session[:card_index]
+  end  
 end
