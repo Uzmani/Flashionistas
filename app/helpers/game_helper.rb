@@ -8,40 +8,31 @@ helpers do
     session[:game_cards].length
   end
 
-  def total_cards
-    session[:game_cards].length
-  end
-
   def current_card
     @card = Card.find_by_id(session[:game_cards][session[:card_index]])
   end
 
   def check_guess
-    wrong_answer unless params[:answer] == current_card.answer
+    answer_is_wrong unless params[:answer] == current_card.answer
   end
 
   def next_card
     session[:card_index] += 1
   end
 
-  def wrong_answer
+  def answer_is_wrong
     session[:wrong_answers] << session[:card_index]
   end
-
 
   def wrong_answers
     session[:wrong_answers]
   end
-
+  
+  def total_correct
+    total_cards - answer_is_wrong.length
+  end
   
   def score
-    total_cards - wrong_answer.length
+    ((total_correct.to_f / total_cards) * 100).round(1)
   end
-  
-  def percentage_complete
-    ((score.to_f / total_cards) * 100).round(1)
-  end
-  # def last_card?
-  #   session[:game_cards].count == session[:card_index]
-  # end  
 end
