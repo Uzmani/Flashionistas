@@ -37,5 +37,6 @@ end
 #game is finished
 get '/success' do
   @percentage = score
+  get_wrong_answers
   erb :summary
 end
