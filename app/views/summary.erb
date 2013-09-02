@@ -1,4 +1,4 @@
-
+<div class="success_page">
   <h3>Your score for this round!</h3>
   <p>Percentage you got correct: <%= @percentage %>%</p>
   <br>
@@ -6,9 +6,10 @@
     <input type="submit" value="Back to decks">
   </form>
 
-<br>
-<p><b>Here's what you need to review:</b></p>
-<% @wrong.each do |card| %>
-<p><%= card.definition %> -- <%= card.answer %></p><br>
-<%end%>
+  <br>
+  <p><b>Here's what you need to review:</b></p>
+  <% @wrong.each do |card| %>
+  <p><%= card.definition %> -- <%= card.answer %></p><br>
+  <%end%>
+</div>
 
