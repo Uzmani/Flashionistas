@@ -1,4 +1,4 @@
-#home page, shows login
+#home page, login
 get '/' do
   @user = User.new
   if current_user
@@ -15,15 +15,12 @@ get '/decks' do
 end
 
 #select a deck
-#assign deck and user to new game instance
 get '/deck/:deck_id' do
   new_game
   redirect "/game"
 end
 
-
 #begin game
-#show FIRST/NEXT card of deck
 get '/game' do
   current_card
   redirect '/success' unless @card # double redirect logic is odd
@@ -31,7 +28,6 @@ get '/game' do
 end
 
 #check guess
-#route answer if right/wrong
 post '/game' do  
   check_guess
   next_card
@@ -40,8 +36,7 @@ end
 
 #game is finished
 get '/success' do
-  @percentage = percentage_complete
+  @percentage = score
+  get_wrong_answers
   erb :summary
 end
-
-

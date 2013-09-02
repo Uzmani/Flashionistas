@@ -4,44 +4,44 @@ helpers do
     session[:game_cards] = game.get_shuffled_deck
   end
 
-  def total_cards
-    session[:game_cards].length
-  end
-
-  def total_cards
-    session[:game_cards].length
-  end
-
   def current_card
-    @card = Card.find_by_id(session[:game_cards][session[:card_index]])
+    @card = Card.find_by_id(current_card_id)
   end
 
-  def check_guess
-    wrong_answer unless params[:answer] == current_card.answer
+  def current_card_id
+    session[:game_cards][session[:card_index]]
   end
 
   def next_card
     session[:card_index] += 1
   end
 
-  def wrong_answer
-    session[:wrong_answers] << session[:card_index]
+  def check_guess
+    wrong_answer if params[:answer] != current_card.answer
   end
 
+  def wrong_answer
+    session[:wrong_answers] << current_card_id
+  end
 
-  def wrong_answers
+  def total_cards
+    session[:game_cards].length
+  end
+
+  def wrong_answer_ids
     session[:wrong_answers]
   end
 
+  def get_wrong_answers
+    @wrong = []
+    wrong_answer_ids.each {|id| @wrong << Card.find_by_id(id)}
+  end
+
+  def total_correct
+    total_cards - wrong_answer_ids.length
+  end
   
   def score
-    total_cards - wrong_answer.length
+    ((total_correct.to_f / total_cards) * 100).round(1)
   end
-  
-  def percentage_complete
-    ((score.to_f / total_cards) * 100).round(1)
-  end
-  # def last_card?
-  #   session[:game_cards].count == session[:card_index]
-  # end  
 end
