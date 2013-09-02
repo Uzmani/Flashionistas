@@ -23,15 +23,15 @@ end
 #begin game
 get '/game' do
   current_card
-  redirect '/success' unless @card # double redirect logic is odd
+  redirect '/success' unless @card
   erb :card
 end
 
 #check guess
-post '/game' do  
+post '/game' do
   check_guess
   next_card
-  redirect '/game'    
+  redirect '/game'
 end
 
 #game is finished

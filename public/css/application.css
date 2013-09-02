@@ -28,31 +28,6 @@
   background-image: url('http://www.rgbstock.com/cache1nYGZh/users/w/we/weirdvis/300/mmKVlKY.jpg');
 }
 
-th {
-  text-align: left;
-}
-
-.nav-username-show p {
-  color: white;
-  margin: 0;
-}
-
-.nav-username-show {
-  float: right;
-  padding-left: 10px;
-}
-
-.navbar-brand h2 {
-  float: left;
-  color: #FF0066;
-  text-decoration: none;
-  font-family: 'New Rocker', cursive;
-}
-
-.navbar-brand h2:hover {
-  color: #33FF00;
-}
-
 .deck-list li {
   list-style: none;
   margin: 10px auto;
@@ -76,5 +51,31 @@ img {
   width: 400px;
   height: auto;
   box-shadow: 10px 10px 5px;
+}
+
+
+th {
+  text-align: left;
+}
+
+.nav-username-show p {
+  color: white;
+  margin: 0;
+}
+
+.nav-username-show {
+  float: right;
+  padding-left: 10px;
+}
+
+.navbar-brand h2 {
+  float: left;
+  color: #FF0066;
+  text-decoration: none;
+  font-family: 'New Rocker', cursive;
+}
+
+.navbar-brand h2:hover {
+  color: #33FF00;
 }
 
