@@ -1,12 +1,10 @@
 class Game < ActiveRecord::Base
   belongs_to :user
   belongs_to :deck
+  before_save :get_shuffled_deck
 
-  def card_shuffle
-    @available_cards = deck.cards.shuffle
+  def get_shuffled_deck
+     deck.cards.shuffle.map {|card| card.id}
   end
 
-  def available_cards
-    @available_cards
-  end
 end

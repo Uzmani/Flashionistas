@@ -1,8 +1,6 @@
-<div>
-  <div class='guess_status'>Correct
-  </div>
+<div class="card_container">
   <div class='cardimage'>
-    <img src='http://images.starpulse.com/pictures/2013/06/13/previews/Henry%20Cavill2-20130613-12.jpg'>
+    <img src="<%= @card.images %>">
   </div>
 
   <div class='cardshow'>
@@ -11,7 +9,7 @@
     </div>
     <div class='card_options'>
         <form name='card_value' 
-        action='/game/<%= @card.deck_id %>/<%= @card.id %>' method='post'>
+        action='/game' method='post'>
           <input type='text' name='answer' placeholder='HOT or NOT?'><br>
           <input type='submit' value='Are you sure???'>
         </form>

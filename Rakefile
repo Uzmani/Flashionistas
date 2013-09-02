@@ -125,7 +125,7 @@ end
 
 desc "DO IT ALL"
 task :reset do
-  exec "rake db:drop && rake db:create && rake db:migrate"
+  exec "rake db:drop && rake db:create && rake db:migrate && rake db:seed"
 end
 
 desc "Run the specs"

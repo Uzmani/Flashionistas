@@ -1,5 +1,17 @@
-<ul>
+<div class="head_text">
+  <h4> Select a deck: </h4>
+</div>
+
+<ul class="deck-list">
   <% @decks.each do |deck| %>
-  <li><a href= "/decks/<%=deck.id%>"><%= deck.name %></a></li>
+  <div class="button">
+    <li>
+      <a href= "/deck/<%=deck.id%>">
+        <button type="button" class="btn btn-default btn-lg">
+          <%= deck.name %>
+        </button>
+      </a>
+    </li>
+  </div>
   <% end %>
 </ul>
