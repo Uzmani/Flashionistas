@@ -1,8 +1,31 @@
 .container {
   margin: 100px auto;
-  width: 600px;
+  width: 90%;
   padding: 0 20px 20px 20px;
-  border: 1px dotted black;
+  float:left;
+}
+
+.title {
+  font-family: 'New Rocker', cursive;
+  text-align: center;
+}
+
+.button {
+  padding: 100px;
+  float: left;
+  margin: 100px;
+  box-shadow: 10px 10px 5px;
+  border: 2px solid black;
+}
+
+.button:last-child {
+  background-size: 95%;
+  background-image: url('http://cdnimg.visualizeus.com/thumbs/cd/e7/icon,icons,logos,design-cde7430c3bcde663f07628fe9a214047_h.jpg');
+}
+
+.button:first-child {
+  background-size: 105%;
+  background-image: url('http://www.rgbstock.com/cache1nYGZh/users/w/we/weirdvis/300/mmKVlKY.jpg');
 }
 
 th {
@@ -17,6 +40,24 @@ th {
 .nav-username-show {
   float: right;
   padding-left: 10px;
+}
+
+.navbar-brand h2 {
+  float: left;
+  color: #FF0066;
+  text-decoration: none;
+  font-family: 'New Rocker', cursive;
+}
+
+.navbar-brand h2:hover {
+  color: #33FF00;
+}
+
+.deck-list li {
+  list-style: none;
+  margin: 10px auto;
+  padding: 10px;
+  display: inline;
 }
 
 
