@@ -1,6 +1,6 @@
 #login, authenticate user, assign user_id to session
 post '/login' do
-  @user = User.authenticate(params[:username], params[:password])
+  @user = User.authenticate(params)
 
   if @user # won't trigger if user=nil
     session[:user_id] = @user.id
@@ -18,7 +18,7 @@ post '/signup' do
   erb :signup
 end
 
-get '/logout' do 
+get '/logout' do
   session.clear
   redirect '/'
 end

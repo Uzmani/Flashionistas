@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
   validates :user_name, presence: true, uniqueness: true
   has_many :games
 
-  def self.authenticate(username, password)
-    user = self.find_by_user_name(username)
+  def self.authenticate(login)
+    user = self.find_by_user_name(login[:username])
     return nil if user.nil?
-    user.password == password ? user : nil
+    user.password == login[:password] ? user : nil
   end
 
   def login_error
