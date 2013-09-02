@@ -28,17 +28,17 @@ helpers do
     session[:game_cards].length
   end
 
-  def wrong_answers
+  def wrong_answer_ids
     session[:wrong_answers]
   end
 
   def get_wrong_answers
     @wrong = []
-    wrong_answers.each {|id| @wrong << Card.find_by_id(id)}
+    wrong_answer_ids.each {|id| @wrong << Card.find_by_id(id)}
   end
 
   def total_correct
-    total_cards - wrong_answers.length
+    total_cards - wrong_answer_ids.length
   end
   
   def score
